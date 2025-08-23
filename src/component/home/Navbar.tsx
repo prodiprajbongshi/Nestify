@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import  brandIcon from "./brandIcon.png";
 import React, { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { FiHeart } from "react-icons/fi";
@@ -41,7 +42,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <Link href="/">
                 <Image
-                  src="/brandicon.png"
+                  src={brandIcon}
                   width={200}
                   height={100}
                   className="w-[180px] h-[75px]"
