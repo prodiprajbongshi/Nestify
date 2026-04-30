@@ -28,8 +28,8 @@ const SpecialProducts = () => {
   ];
 
   return (
-    <div className="py-10 lg:py-16">
-      <div className="container mx-auto px-4">
+    <div className="py-10 lg:py-16 md:my-16">
+      <div className="container mx-auto px-4">  
         <div className="text-center">
           <h3 className="text-primary text-md md:text-xl opacity-70">
             Exclusive Products

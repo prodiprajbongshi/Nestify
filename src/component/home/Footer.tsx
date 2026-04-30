@@ -17,8 +17,8 @@ export default function Footer() {
     <footer className="bg-gray-50 py-12 ">
       <div className=" md:container">
         {/* Newsletter Section */}
-        <div className=" mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <div className=" rounded-lg p-8 shadow-md">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8 my-12">
+          <div className=" rounded-md p-8 shadow-[0_0_25px_rgba(0,0,0,0.12)]">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-center lg:text-left">
                 <h2 className="text-xl md:text-2xl font-bold text-dark  mb-2">
@@ -30,14 +30,16 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-                <input
+               <form >
+                 <input
                   type="email"
                   placeholder="Enter Email Address"
                   className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary flex-1 lg:w-80"
                 />
-                <button className="px-8 py-3 bg-primary hover:bg-primary text-gray-800 font-medium rounded-md transition-colors duration-200">
+                <button className="px-8 py-3 bg-primary hover:bg-primary text-gray-800 font-medium rounded-md transition-colors duration-200 cursor-pointer">
                   SUBSCRIBE
                 </button>
+               </form>
               </div>
             </div>
           </div>
