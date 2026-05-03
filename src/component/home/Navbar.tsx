@@ -39,29 +39,19 @@ const Navbar = () => {
       <div className={`shadow-md md:py-4 bg-white ` }>
         <div className="container relative">
           <div className="flex items-center justify-between md:mx-6">
-            <div className="hidden md:block">
+            <div className="  md:block">
               <Link href="/">
-                <Image
+                <Image  
                   src={brandIcon}
-                  width={200}
-                  height={100}
-                  className="w-[180px] h-[75px]"
+                 
+                  className="w-[100px] md:w-[180px] h-[45px]  md:h-[75px]"
                   alt="Brand Icon"
                   priority
                 />
               </Link>
             </div>
 
-            <div className="md:hidden">
-              <Image
-                src="/brandicon.png"
-                width={150}
-                height={75}
-                className="w-[120px] h-[60px]"
-                alt="Brand Icon"
-                priority
-              />
-            </div>
+            
 
             <div className="flex items-center justify-center space-x-3 md:space-x-5">
               <div className="hidden md:block">
