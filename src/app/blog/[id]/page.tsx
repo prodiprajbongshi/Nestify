@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export default function Page({ params }) {
+export default function Page({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
 
   return (
