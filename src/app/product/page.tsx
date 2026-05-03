@@ -112,36 +112,42 @@ const page = () => {
     <div>
       <div className="container my-8 md:my-16">
         <div className="lg:flex justify-center space-x-8">
-          {/* side MENU  */}
-          <div className="w-full lg:w-1/4 bg-neutral/50 p-2.5 md:py-10 md:px-4 lg:h-[60vh]">
-            {/* brand option  */}
-            <div className="">
-              <div className="border-b-1 border-gray-300">
-                <h1 className="text-xl pb-1">Filters</h1>
-              </div>
-              {/* brands name option  */}
-              <div className="py-4  ">
-                <h1 className="text-xl pb-1">Brand</h1>
-                <div className="border border-gray-300 h-[180px] overflow-y-scroll">
+          {/* Side Menu */}
+          <div className="w-full lg:w-1/4">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 lg:h-[70vh] overflow-y-auto">
+              {/* Header */}
+              <h2 className="text-lg font-semibold mb-4">Filters</h2>
+
+              {/* Brand Filter */}
+              <div className="mb-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-3">
+                  Brand
+                </h3>
+
+                <div className="space-y-2 max-h-[180px] overflow-y-auto pr-1">
                   {brands.map((brand, index) => (
-                    <div
+                    <label
                       key={index}
-                      className="p-2 hover:bg-primary transition-all duration-300 cursor-pointer"
+                      className="flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-gray-100 transition"
                     >
-                      <input type="checkbox" className="me-2" />
-                      {brand}
-                    </div>
+                      <input
+                        type="checkbox"
+                        className="accent-primary w-4 h-4"
+                      />
+                      <span className="text-sm text-gray-700">{brand}</span>
+                    </label>
                   ))}
                 </div>
               </div>
-              {/* Colour option  */}
-              <div className="py-2">
-                <h1 className="text-xl pb-1">Colors</h1>
-                <select
-                  className="w-full outline-1 py-1 outline-gray-300"
-                  name="colors"
-                  id=""
-                >
+
+              {/* Color Filter */}
+              <div className="mb-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                  Color
+                </h3>
+
+                <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option>Select color</option>
                   <option>Burgundy</option>
                   <option>Brown</option>
                   <option>White</option>
@@ -154,14 +160,15 @@ const page = () => {
                   <option>Black</option>
                 </select>
               </div>
-              {/* Price option  */}
-              <div className="py-2">
-                <h1 className="text-xl pb-1">Prices</h1>
-                <select
-                  className="w-full outline-1 py-1 outline-gray-300"
-                  name="prices"
-                  id=""
-                >
+
+              {/* Price Filter */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                  Price
+                </h3>
+
+                <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option>Select price range</option>
                   <option>Below $100</option>
                   <option>$100 - $200</option>
                   <option>$200 - $400</option>
@@ -178,7 +185,7 @@ const page = () => {
           <div className="w-full lg:w-3/4 mt-6 lg:mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((item) => (
-                <Link key={item.id} href="#">
+                <Link key={item.id} href={`product/${item.id}`}>
                   <div className="group rounded-2xl bg-gradient-to-b from-[#f5f3f1] to-[#e9e3de] shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
                     {/* Image Section */}
                     <div className="relative bg-gray-100 h-[240px] flex items-center justify-center overflow-hidden">
@@ -193,7 +200,7 @@ const page = () => {
                       {/* Floating Cart Button */}
                       <div className="absolute top-3 right-3 opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                         <button className="w-10 h-10 bg-white/80 backdrop-blur-md shadow-md border border-gray-200 rounded-full flex items-center justify-center hover:scale-110 transition">
-                          <FaShoppingCart className="text-gray-700" />
+                          <FaShoppingCart className="text-gray-700 cursor-pointer" />
                         </button>
                       </div>
 
@@ -222,7 +229,7 @@ const page = () => {
                           ${item.price}
                         </span>
 
-                        <button className="text-sm px-3 py-1.5 bg-black/65 text-white rounded-lg hover:bg-gray-800 transition">
+                        <button className="text-sm cursor-pointer px-3 py-1.5 bg-black/65 text-white rounded-lg hover:bg-gray-800 transition">
                           Purchase
                         </button>
                       </div>

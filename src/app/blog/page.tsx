@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <div className="container py-12">
       <div className="">
-        <BlogCard />
+        <BlogCard    />
         <div className="mt-16">
         <Pagination currentPage={currentPage} totalPages={totalPages}  />
         </div>

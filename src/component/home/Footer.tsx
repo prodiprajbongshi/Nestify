@@ -29,10 +29,11 @@ export default function Footer() {
                   Newsletter.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-               <form >
+              <div >
+               <form method="post" className=" flex flex-col md:flex-row gap-4 ">
                  <input
                   type="email"
+                  required
                   placeholder="Enter Email Address"
                   className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary flex-1 lg:w-80"
                 />

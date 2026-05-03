@@ -39,13 +39,13 @@ export default function ProductCard({
 
         {/* Action Buttons */}
         <div className="absolute right-4 top-4 flex flex-col gap-3 opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-          {[AiOutlineHeart, AiOutlineShoppingCart, AiOutlineSearch].map(
+          {[AiOutlineHeart, AiOutlineShoppingCart].map(
             (Icon, i) => (
               <button
                 key={i}
                 className="w-9 h-9 bg-white/80 backdrop-blur-md hover:bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <Icon className="w-4 h-4 text-gray-600" />
+                <Icon className="w-4 h-4 text-gray-600 cursor-pointer" />
               </button>
             ),
           )}
@@ -55,7 +55,7 @@ export default function ProductCard({
       {/* Content */}
       <div className="p-5 space-y-3">
         {/* Title */}
-        <h3 className="text-base font-semibold text-gray-800 line-clamp-2 group-hover:text-black transition">
+        <h3 className="text-xl font-semibold text-gray-800 line-clamp-2 group-hover:text-black transition">
           {title}
         </h3>
 
@@ -84,7 +84,7 @@ export default function ProductCard({
           </div>
 
           {/* Add to Cart Button */}
-          <button className="px-4 py-2 text-sm font-medium bg-black/65 text-white rounded-md hover:bg-gray-800 transition">
+          <button className="px-4 py-2 text-sm cursor-pointer font-medium bg-black/65 text-white rounded-md hover:bg-gray-800 transition">
             Purchase
           </button>
         </div>

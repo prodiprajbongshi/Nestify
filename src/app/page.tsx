@@ -12,7 +12,6 @@ import Blog from "@/component/home/Blog";
 const Home = () => {
   return (
     <div>
-
       <HeroArea />
       <TopProduct />
       <SpecialProducts />

@@ -20,10 +20,10 @@ const ContackForm = () => {
           {/* contact text  */}
           <div className="w-full md:w-4/6  ">
             <div className="">
-              <h1 className="text-xl md:text-3xl lg:text-5xl font-bold">
+              <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold text-gray-800">
                 Get In Touch
               </h1>
-              <p className="text-sm md:text-md py-2 md:py-8 w-full   lg:w-[85%] ">
+              <p className="text-md text-justify py-2 md:py-6 w-full   lg:w-[85%] ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus illo dolores voluptas autem veniam corporis explicabo
                 enim commodi excepturi eius! Ipsum eligendi perferendis
@@ -33,16 +33,16 @@ const ContackForm = () => {
             </div>
             <div className="mb-4">
               <div className="flex space-x-4">
-                <button className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
+                <button className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
                   <FaFacebookF className="w-4 h-4 text-gray-600 cursor-pointer" />
                 </button>
-                <button className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
+                <button className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
                   <FaTwitter className="w-4 h-4 text-gray-600 cursor-pointer" />
                 </button>
-                <button className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
+                <button className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
                   <FaInstagram className="w-4 h-4 text-gray-600 cursor-pointer" />
                 </button>
-                <button className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
+                <button className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200">
                   <FaPinterestP className="w-4 h-4 text-gray-600 cursor-pointer" />
                 </button>
               </div>
@@ -57,7 +57,7 @@ const ContackForm = () => {
                 </label>
                 <br />
                 <input
-                  
+                  required
                   className="w-full bg-white  py-2.5 my-3 px-3.5 focus:outline-1.5 outline-primary"
                   placeholder="Enter Full Name"
                   type="text"
@@ -81,6 +81,7 @@ const ContackForm = () => {
                     type="email"
                     name="userEmail"
                     id="userEmail"
+                     required
                   />
                 </div>
                 <div className="w-full md:w-1/2">
@@ -97,6 +98,7 @@ const ContackForm = () => {
                     type="text"
                     name="userPhone"
                     id="userPhone"
+                     required
                   />
                 </div>
               </div>
@@ -114,6 +116,7 @@ const ContackForm = () => {
                   type="text"
                   name="subject"
                   id="subject"
+                   required
                 />
               </div>
               <div className="">
@@ -126,6 +129,7 @@ const ContackForm = () => {
                   placeholder="Type Your Message"
                   name="userMassage"
                   id="userMassage"
+                   required
                 ></textarea>
               </div>
               <input

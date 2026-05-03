@@ -129,13 +129,13 @@ const BlogCard = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {blogs.map((data) => (
-        <Link href="#" className=" " key={data.id}>
+        <Link href={`/blog/${data.id}`} key={data.id} className=" "  >
           <div className="overflow-hidden">
             <Image
               className="hover:scale-125 transition-all duration-500"
-              src="/blog/blogImage.webp"
+              src="/blog/blog.png"
               width={500}
               height={500}
               alt="Blog Image"
