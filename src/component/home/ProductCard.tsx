@@ -1,24 +1,48 @@
+"use client";
+
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
-  AiOutlineSearch,
   AiOutlineStar,
+  AiFillStar,
 } from "react-icons/ai";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
+import { useState } from "react";
 
 interface ProductCardProps {
+  id: number;
   img: string;
   price: number;
   offerPrice: number;
   title: string;
+  category?: string;
 }
 
 export default function ProductCard({
+  id,
   img,
   price,
   offerPrice,
   title,
+  category = "Furniture",
 }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+  const [liked, setLiked] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      name: title,
+      price: offerPrice,
+      image: img,
+      category,
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
+  };
+
   return (
     <div className="group w-full max-w-sm rounded-2xl bg-gradient-to-b from-[#f5f3f1] to-[#e9e3de] shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
       {/* Image Section */}
@@ -31,7 +55,7 @@ export default function ProductCard({
         {/* Product Image */}
         <Image
           src={img}
-          alt="Product Image"
+          alt={title}
           width={300}
           height={300}
           className="object-contain h-full transition-transform duration-500 group-hover:scale-110"
@@ -39,16 +63,22 @@ export default function ProductCard({
 
         {/* Action Buttons */}
         <div className="absolute right-4 top-4 flex flex-col gap-3 opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-          {[AiOutlineHeart, AiOutlineShoppingCart].map(
-            (Icon, i) => (
-              <button
-                key={i}
-                className="w-9 h-9 bg-white/80 backdrop-blur-md hover:bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-              >
-                <Icon className="w-4 h-4 text-gray-600 cursor-pointer" />
-              </button>
-            ),
-          )}
+          <button
+            onClick={() => setLiked((prev) => !prev)}
+            className="w-9 h-9 bg-white/80 backdrop-blur-md hover:bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+          >
+            <AiOutlineHeart
+              className={`w-4 h-4 cursor-pointer transition-colors ${liked ? "text-red-500" : "text-gray-600"}`}
+            />
+          </button>
+          <button
+            onClick={handleAddToCart}
+            className="w-9 h-9 bg-white/80 backdrop-blur-md hover:bg-white shadow-md border border-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+          >
+            <AiOutlineShoppingCart
+              className={`w-4 h-4 cursor-pointer transition-colors ${added ? "text-green-500" : "text-gray-600"}`}
+            />
+          </button>
         </div>
       </div>
 
@@ -61,10 +91,14 @@ export default function ProductCard({
 
         {/* Rating */}
         <div className="flex items-center gap-1">
-          {[...Array(5)].map((_, i) => (
-            <AiOutlineStar key={i} className="w-4 h-4 text-yellow-400" />
-          ))}
-          <span className="text-xs text-gray-500 ml-1">(0 reviews)</span>
+          {[...Array(5)].map((_, i) =>
+            i < 4 ? (
+              <AiFillStar key={i} className="w-4 h-4 text-yellow-400" />
+            ) : (
+              <AiOutlineStar key={i} className="w-4 h-4 text-yellow-400" />
+            )
+          )}
+          <span className="text-xs text-gray-500 ml-1">(24 reviews)</span>
         </div>
 
         {/* Price Section */}
@@ -84,8 +118,15 @@ export default function ProductCard({
           </div>
 
           {/* Add to Cart Button */}
-          <button className="px-4 py-2 text-sm cursor-pointer font-medium bg-black/65 text-white rounded-md hover:bg-gray-800 transition">
-            Purchase
+          <button
+            onClick={handleAddToCart}
+            className={`px-4 py-2 text-sm cursor-pointer font-medium rounded-md transition-all duration-300 ${
+              added
+                ? "bg-green-600 text-white scale-95"
+                : "bg-black/65 text-white hover:bg-gray-800"
+            }`}
+          >
+            {added ? "✓ Added!" : "Add to Cart"}
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarTop from "@/component/home/NavbarTop";
 import Navbar from "@/component/home/Navbar";
 import Footer from "@/component/home/Footer";
+import { CartProvider } from "@/context/CartContext";
 
  
 export const metadata: Metadata = {
@@ -24,10 +25,12 @@ export default function RootLayout({
       <body
          
       >
-        <NavbarTop />
-        <Navbar />
-        {children}
-        <Footer />
+        <CartProvider>
+          <NavbarTop />
+          <Navbar />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

@@ -4,27 +4,29 @@ import ProductCard from "./ProductCard";
 const SpecialProducts = () => {
   const images = [
     {
-      id: 1,
+      id: 101,
       img: "/home/furniture_one_6.png",
       price: 25,
-      offerPrice : 20,
-      title : "Glamour Gaze",
+      offerPrice: 20,
+      title: "Glamour Gaze",
+      category: "Furniture",
     },
     {
-      id: 2,
+      id: 102,
       img: "/home/furniture_one_7.png",
       price: 35,
-      offerPrice : 30,
-      title : "LuxeLiving",
+      offerPrice: 30,
+      title: "LuxeLiving",
+      category: "Furniture",
     },
     {
-      id: 3,
+      id: 103,
       img: "/home/furniture_one_8.png",
       price: 45,
-      offerPrice : 40,
-      title : "Eldora TV Console",
+      offerPrice: 40,
+      title: "Eldora TV Console",
+      category: "Furniture",
     },
- 
   ];
 
   return (

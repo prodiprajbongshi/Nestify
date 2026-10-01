@@ -10,11 +10,14 @@ import { FaRegUser } from "react-icons/fa";
 import Link from "next/link";
 import { RiMenu2Line } from "react-icons/ri";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useCart } from "@/context/CartContext";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { totalItems } = useCart();
 
   // Scroll logic for hide/show navbar
   useEffect(() => {
@@ -66,10 +69,17 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              <IoCartOutline
-                size={25}
-                className="text-[#6a6a6a] font-bold cursor-pointer"
-              />
+              <Link href="/cart" className="relative">
+                <IoCartOutline
+                  size={25}
+                  className="text-[#6a6a6a] font-bold cursor-pointer"
+                />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-primary text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                    {totalItems > 99 ? "99+" : totalItems}
+                  </span>
+                )}
+              </Link>
               <FaRegUser
                 size={25}
                 className="text-[#6a6a6a] font-bold cursor-pointer"
