@@ -5,6 +5,7 @@ import NavbarTop from "@/component/home/NavbarTop";
 import Navbar from "@/component/home/Navbar";
 import Footer from "@/component/home/Footer";
 import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "@/context/AuthContext";
 
  
 export const metadata: Metadata = {
@@ -25,12 +26,14 @@ export default function RootLayout({
       <body
          
       >
-        <CartProvider>
-          <NavbarTop />
-          <Navbar />
-          {children}
-          <Footer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <NavbarTop />
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
